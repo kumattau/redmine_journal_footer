@@ -1,0 +1,22 @@
+<% @journal = journal %>
+<div class="footer" id="journal-<%= @journal.id %>-footer">
+  <div id="journal-<%= @journal.id %>-output">
+    by <%= render_user_string %>
+    at <%= render_time_string %>
+    <% if authorize_for('journals', 'delete') \
+       && authorize_for('journals', 'update') %>
+      <%= render_journal_toggle(image_tag('bullet_add.png')) %>
+    <% end %>
+  </div>
+  <% if authorize_for('journals', 'delete') \
+     && authorize_for('journals', 'update') %>
+    <% render_journal_form do %>
+      by <%= render_user_select %>
+      at <%= render_time_select %>
+      <%= render_journal_update %>
+      <%= render_journal_delete %>
+      <%= render_journal_toggle(image_tag('bullet_delete.png')) %>
+    <% end %>
+  <% end %>
+</div>
+<% @journal = nil %>

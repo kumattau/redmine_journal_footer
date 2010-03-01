@@ -1,0 +1,6 @@
+.journal .footer {
+  float: none;
+  text-align: right;
+  display: block;
+  margin-bottom: 6px;
+}
