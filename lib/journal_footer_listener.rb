@@ -1,16 +1,17 @@
 class JournalFooterListener < Redmine::Hook::ViewListener
 
+  def view_layouts_base_html_head(context)
+    stylesheet_link_tag(
+      'journal_footer',
+      :plugin => 'redmine_journal_footer'
+    )
+  end
+
   def view_issues_show_details_bottom(context)
-   html = []
-   html << javascript_include_tag(
+    javascript_include_tag(
       'journal_footer',
       :plugin => 'redmine_journal_footer'
     )
-    html << stylesheet_link_tag(
-      'journal_footer',
-      :plugin => 'redmine_journal_footer'
-    )
-    html.join("\n")
   end
 
   render_on :view_issues_history_journal_bottom,
