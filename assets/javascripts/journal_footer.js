@@ -1,6 +1,6 @@
-window.onload = function(){
+Event.observe(window, 'load', function(){
   adjust_journal_footer();
-};
+});
 
 function adjust_journal_footer(){
   $$('#history .footer').each(function(obj){
@@ -34,4 +34,3 @@ function render_calendar(jid){
   });
   return false;
 }
-
